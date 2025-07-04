@@ -1,0 +1,272 @@
+.carrusel {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carrusel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.carrusel-header {
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.carrusel-header h2 {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 300;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carrusel-header h3 {
+  font-size: 2.8rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carrusel-header p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.carrusel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrusel-track {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.carrusel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carrusel-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.producto-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.producto-image {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.producto-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.producto-image:hover img {
+  transform: scale(1.05);
+}
+
+.producto-info {
+  color: white;
+}
+
+.producto-info h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+.producto-info p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 3;
+}
+
+.carrusel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carrusel-btn.prev {
+  left: 20px;
+}
+
+.carrusel-btn.next {
+  right: 20px;
+}
+
+.carrusel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carrusel {
+    padding: 60px 15px;
+  }
+  
+  .carrusel-header h2 {
+    font-size: 2rem;
+  }
+  
+  .carrusel-header h3 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .carrusel-header p {
+    font-size: 1rem;
+  }
+  
+  .carrusel-slide {
+    padding: 30px 20px;
+  }
+  
+  .producto-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+  
+  .producto-info h4 {
+    font-size: 1.5rem;
+  }
+  
+  .producto-info p {
+    font-size: 1rem;
+  }
+  
+  .carrusel-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .carrusel-btn.prev {
+    left: 10px;
+  }
+  
+  .carrusel-btn.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrusel-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .carrusel-header h3 {
+    font-size: 1.8rem;
+  }
+  
+  .producto-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .producto-info h4 {
+    font-size: 1.3rem;
+  }
+  
+  .carrusel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}

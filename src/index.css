@@ -45,12 +45,8 @@ body {
 .logo-container img {
   width: 140px;
   height: auto;
-  transition: filter 0.3s ease;
 }
 
-.navbar.scrolled .logo-container img {
-  filter: brightness(0) invert(1);
-}
 
 .menu-principal {
   list-style: none;

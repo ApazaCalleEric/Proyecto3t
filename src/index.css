@@ -1,68 +1,520 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  background-color: #fff;
+  color: #1e1e1e;
   min-height: 100vh;
+  scroll-behavior: smooth;
+  line-height: 1.5;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  position: fixed; /* Para que quede sobre el hero */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent; /* 👈 Transparente al inicio */
+  color: white;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.navbar.scrolled {
+  background-color: #0f5e12;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.logo-container {
+  margin-right: auto;
+}
+
+.logo-container img {
+  width: 140px;
+  height: auto;
+  transition: filter 0.3s ease;
+}
+
+.navbar.scrolled .logo-container img {
+  filter: brightness(0) invert(1);
+}
+
+.menu-principal {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.menu-principal li {
+  position: relative;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  padding-bottom: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.menu-principal li a,
+.menu-principal li span {
+  color: #44a02c;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 0;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.navbar.scrolled .menu-principal li a,
+.navbar.scrolled .menu-principal li span {
+  color: #fff;
+}
+
+.menu-principal li a:hover,
+.menu-principal li span:hover {
+  color: #2d7a18;
+}
+
+.navbar.scrolled .menu-principal li a:hover,
+.navbar.scrolled .menu-principal li span:hover {
+  color: #a5d46e;
+}
+
+.menu-principal li a.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #44a02c;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled .menu-principal li a.active::before {
+  background-color: #a5d46e;
+}
+
+/* Submenú “Desinfectantes” con fondo verde navbar */
+.menu-item-desinfectantes ul.submenu-desinfectantes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #0f5e12;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  min-width: 200px;
+  display: none;
+  z-index: 9999;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item-desinfectantes:hover ul.submenu-desinfectantes {
+  display: block;
+}
+
+.submenu-desinfectantes li {
+  padding: 6px 30px;
+  white-space: nowrap;
+}
+
+.submenu-desinfectantes li a {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.submenu-desinfectantes li a:hover {
+  color: #a5d46e;
+}
+
+/* Submenú de los tres puntos con fondo verde */
+.menu-item-mas ul.submenu-mas {
+  position: absolute;
+  top: 130%;
+  left: -40px;
+  background: #0f5e12;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  min-width: 180px;
+  display: none;
+  z-index: 9999;
+}
+
+.menu-item-mas:hover ul.submenu-mas {
+  display: block;
+}
+
+.submenu-mas li {
+  padding: 6px 30px;
+  white-space: nowrap;
+}
+
+.submenu-mas li a {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+}
+
+.submenu-mas li a:hover {
+  color: #0f5e12;
+}
+
+.btn-mrcloro {
+  background-color: #0f5e12;
+  color: white;
+  font-weight: 700;
+  padding: 9px 25px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  margin-left: 20px;
+  user-select: none;
+}
+
+.btn-mrcloro:hover {
+  background-color: white;
+}
+
+.navbar.scrolled .btn-mrcloro {
+  background-color: #0f5e12;
+  color: white;
+}
+
+.navbar.scrolled .btn-mrcloro:hover {
+  background-color: #d3f0c5;
+  color: #3a8f24;
+}
+
+.menu-principal li,
+.menu-item-desinfectantes,
+.menu-item-mas {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.menu-item-desinfectantes > span {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: #44a02c;
+}
+
+.navbar.scrolled .menu-item-desinfectantes > span {
+  color: white;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  position: relative;
+  height: 800px;
+  background-image: url('/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* cambia de center a flex-start */
+  padding-left: 60px;
+  padding-top: 200px; /* 👈 baja el texto */
+  color: #fff;
+  overflow: hidden;
+}
+
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  max-width: 600px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+.hero h2{
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+}
+
+.hero button {
+  background-color: #44a02c;
+  border: none;
+  padding: 15px 35px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: max-content;
+}
+
+.hero button:hover {
+  background-color: #3a8f24;
+}
+.hero img {
+  left: 50%;
+  width: 100vw; /* más grande */
+  margin-top: 500px; /* separa un poco del texto */
+  align-self: flex-start; /* para que quede alineada a la izquierda */
+  position: absolute;
+  bottom: -50px;
+  transform: translateX(-50%);
+  max-width: none;     /* para asegurarse que no limite */
+  height: auto;
+  object-fit: cover;
+}
+
+/* ---------- PRODUCTOS ---------- */
+
+.productos {
+  padding: 60px 60px 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 40px;
+  background-color: #f5f5f5;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+  box-shadow: 0 8px 25px rgb(0 0 0 / 0.15);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding: 15px 20px;
+}
+
+.producto-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.producto-info p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* ---------- BENEFICIOS ---------- */
+
+.beneficios {
+  background-color: white;
+  padding: 60px 60px;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.beneficio {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.beneficio img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.beneficio h4 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #44a02c;
+}
+
+.beneficio p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  background-color: #1e1e1e;
+  color: #ccc;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer .col {
+  flex: 1 1 200px;
+  margin-bottom: 25px;
+}
+
+footer h5 {
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+  color: #44a02c;
+}
+
+/* ---------- BOTONES ---------- */
+
+button, .btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 7px;
+  border: none;
+  padding: 10px 25px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-verde {
+  background-color: #44a02c;
+  color: white;
+}
+
+.btn-verde:hover {
+  background-color: #3a8f24;
+}
+
+/* ---------- UTILIDADES ---------- */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-left: 40px;
   }
-  a:hover {
-    color: #747bff;
+  .navbar {
+    padding: 15px 40px;
   }
-  button {
-    background-color: #f9f9f9;
+  .productos {
+    padding: 40px 40px 80px;
   }
+  footer {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .menu-principal {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-container img {
+    width: 110px;
+    margin-bottom: 10px;
+  }
+  .productos {
+    grid-template-columns: 1fr;
+    padding: 30px 20px 60px;
+  }
+  footer {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  footer .col {
+    margin-bottom: 20px;
+  }
+}
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: #0f5e12; /* mismo verde del navbar */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-down:hover {
+  background-color: #a5d46e;
 }

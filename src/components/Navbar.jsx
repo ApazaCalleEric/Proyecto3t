@@ -17,7 +17,7 @@ export default function Navbar() {
       {/* Logo a la izquierda */}
       <div className="logo-container">
         <img
-          src="/* LINK LOGO AQUÍ */"
+          src="/mrcloro.png"
           alt="Mr Cloro Logo"
         />
       </div>

@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 
 export default function Piscina() {
   return (
@@ -12,7 +11,6 @@ export default function Piscina() {
         </p>
         {/* IMAGEN_AQUI */}
       </main>
-      <Footer />
     </>
   )
 }

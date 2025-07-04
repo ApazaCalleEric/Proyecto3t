@@ -1,0 +1,146 @@
+.beneficios {
+  padding: 80px 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.beneficios-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.beneficios-imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beneficios-imagen img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.beneficios-contenido {
+  padding: 20px;
+}
+
+.beneficios-contenido h2 {
+  font-size: 2.5rem;
+  color: #22c55e;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.beneficios-contenido p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.beneficios-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.beneficios-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.beneficio-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.beneficio-icon {
+  background-color: #22c55e;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.beneficio-texto {
+  font-size: 1.1rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .beneficios {
+    padding: 40px 20px;
+  }
+  
+  .beneficios-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .beneficios-contenido h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .beneficios-contenido p {
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .beneficios-lista {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .beneficio-item {
+    justify-content: center;
+  }
+  
+  .beneficio-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .beneficio-texto {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .beneficios-contenido h2 {
+    font-size: 1.8rem;
+  }
+  
+  .beneficios-lista {
+    gap: 10px;
+  }
+  
+  .beneficios-columna {
+    gap: 15px;
+  }
+}

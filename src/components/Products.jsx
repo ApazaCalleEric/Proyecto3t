@@ -1,19 +1,21 @@
+import './Products.css'
+
 export default function Products() {
   const cards = [
     {
       title: 'Lavandina',
       desc: 'Calidad y concentración de cloro ideal.',
-      img: '/images/lavandina_card.jpg' // reemplaza
+      img: '/icon1.png' // reemplaza
     },
     {
       title: 'Promociones',
       desc: 'Descubre nuestras increíbles novedades.',
-      img: '/images/promos_card.jpg' // reemplaza
+      img: '/icon2.png' // reemplaza
     },
     {
       title: 'Contacto',
       desc: 'Estamos aquí para ayudarte.',
-      img: '/images/contacto_card.jpg' // reemplaza
+      img: '/icon3.png' // reemplaza
     }
   ]
 

@@ -1,0 +1,305 @@
+/* Lavandina.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.lavandina-container {
+  width: 100%;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.lavandina-header {
+  background: linear-gradient(135deg, #2d5a3d 0%, #4a8c5f 100%);
+  color: white;
+  padding: 10rem 0 6rem 0; /* Aumentado el padding superior para evitar choque con navbar */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.lavandina-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.5;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.lavandina-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.lavandina-main {
+  padding: 2rem 1rem;
+  background: white;
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.lavandina-main h2 {
+  color: #2d5a3d;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.lavandina-main > .content-wrapper > p {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+  height: 100%;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(45, 90, 61, 0.15);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.feature-icon.kitchen {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.feature-icon.bathroom {
+  background: linear-gradient(135deg, #17a2b8, #007bff);
+}
+
+.feature-icon.fruits {
+  background: linear-gradient(135deg, #fd7e14, #e83e8c);
+}
+
+.feature-icon.washing {
+  background: linear-gradient(135deg, #6f42c1, #e83e8c);
+}
+
+.feature-icon.utensils {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.feature-icon.clothes {
+  background: linear-gradient(135deg, #17a2b8, #6f42c1);
+}
+
+.feature-item h3 {
+  color: #2d5a3d;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.product-image {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.presentations-section {
+  margin-top: 4rem;
+}
+
+.presentations-section h2 {
+  color: #28a745;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.presentations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.presentation-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-left: 4px solid #28a745;
+  height: 100%;
+}
+
+.presentation-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.presentation-item h3 {
+  color: #2d5a3d;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.presentation-item p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .product-image {
+    order: -1;
+  }
+  
+  .lavandina-header {
+    padding: 5rem 0 2rem 0; /* Ajuste para tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .lavandina-header {
+    padding: 4rem 0 2rem 0; /* Ajuste para móviles */
+  }
+  
+  .lavandina-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .lavandina-main h2 {
+    font-size: 1.8rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .presentations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .lavandina-main {
+    padding: 1rem;
+  }
+  
+  .content-wrapper {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lavandina-header {
+    padding: 3.5rem 0 1.5rem 0; /* Ajuste para móviles pequeños */
+  }
+  
+  .lavandina-header h1 {
+    font-size: 2rem;
+  }
+  
+  .lavandina-main h2 {
+    font-size: 1.5rem;
+  }
+  
+  .feature-item {
+    padding: 1rem;
+  }
+  
+  .presentation-item {
+    padding: 1.5rem;
+  }
+  
+  .presentations-grid {
+    grid-template-columns: 1fr;
+  }
+}

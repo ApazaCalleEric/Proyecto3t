@@ -1,0 +1,236 @@
+/* Piscina.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.piscina-container {
+  width: 100%;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.piscina-header {
+  background: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+  color: white;
+  padding: 10rem 0 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.piscina-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="70" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.5;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.piscina-header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.piscina-main {
+  padding: 2rem 1rem;
+  background: white;
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin: 3rem 0;
+}
+
+.product-item {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 102, 204, 0.15);
+}
+
+.product-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0066cc, #004080);
+}
+
+.product-item h2 {
+  color: #0066cc;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.product-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.product-image {
+  text-align: center;
+  margin: 1rem 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.advantages-box {
+  text-align: left;
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  flex-grow: 1;
+}
+
+.advantages-box h3 {
+  color: #004080;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.advantages-box p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.advantages-box ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.advantages-box li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.dosification-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f0f7ff;
+  border-radius: 8px;
+}
+
+.dosification-box h4 {
+  color: #004080;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .piscina-header {
+    padding: 7rem 0 4rem 0;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .piscina-header {
+    padding: 5rem 0 3rem 0;
+  }
+  
+  .piscina-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .piscina-main {
+    padding: 1rem;
+  }
+  
+  .content-wrapper {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .piscina-header {
+    padding: 4rem 0 2rem 0;
+  }
+  
+  .piscina-header h1 {
+    font-size: 2rem;
+  }
+  
+  .product-item {
+    padding: 1.5rem;
+  }
+  
+  .product-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}

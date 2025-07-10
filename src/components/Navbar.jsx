@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [showMoreMenu, setShowMoreMenu] = useState(false)
 
   useEffect(() => {
     function onScroll() {
@@ -57,21 +58,37 @@ export default function Navbar() {
           </NavLink>
         </li>
 
-        <li className="menu-item-mas">
+        <li 
+          className="menu-item-mas"
+          onMouseEnter={() => setShowMoreMenu(true)}
+          onClick={() => setShowMoreMenu(!showMoreMenu)}
+        >
           &#8230;
-          <ul className="submenu-mas">
+          <ul className="submenu-mas" style={{ display: showMoreMenu ? 'block' : 'none' }}>
             <li>
-              <NavLink to="/quimicos-industriales" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink 
+                to="/quimicos-industriales" 
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={() => setShowMoreMenu(false)}
+              >
                 Químicos industriales
               </NavLink>
             </li>
             <li>
-              <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink 
+                to="/blog" 
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={() => setShowMoreMenu(false)}
+              >
                 Blog
               </NavLink>
             </li>
             <li>
-              <NavLink to="/contacto" className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink 
+                to="/contacto" 
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={() => setShowMoreMenu(false)}
+              >
                 Contacto
               </NavLink>
             </li>

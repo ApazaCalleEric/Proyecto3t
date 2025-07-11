@@ -7,31 +7,20 @@ export default function Navbar() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 50)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleLoginClick = () => {
-    navigate('/login')
-  }
-
   return (
-    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      {/* Logo a la izquierda */}
-      <div className="logo-container">
-        <img
-          src="/mrcloro.png"
-          alt="Mr Cloro Logo"
-        />
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`} style={{ padding: '8px 0', minHeight: '60px' }}>
+      <div className="logo-container" style={{ height: '80px' }}>
+        <img src="/mrcloro.png" alt="Mr Cloro Logo" style={{ height: '100%', width: 'auto' }} />
       </div>
 
-      {/* Menú y botón a la derecha */}
       <ul className="menu-principal">
         <li>
-          <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>
             Inicio
           </NavLink>
         </li>
@@ -39,28 +28,14 @@ export default function Navbar() {
         <li className="menu-item-desinfectantes">
           <span>Desinfectantes</span>
           <ul className="submenu-desinfectantes">
-            <li>
-              <NavLink to="/lavandina" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Lavandina
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/lavandina-lavanda" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Lavandina Lavanda
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/lavandina-gel" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Lavandina Gel
-              </NavLink>
-            </li>
+            <li><NavLink to="/lavandina">Lavandina</NavLink></li>
+            <li><NavLink to="/lavandina-lavanda">Lavandina Lavanda</NavLink></li>
+            <li><NavLink to="/lavandina-gel">Lavandina Gel</NavLink></li>
           </ul>
         </li>
 
         <li>
-          <NavLink to="/productos-para-piscina" className={({ isActive }) => (isActive ? 'active' : '')}>
-            Productos para piscina
-          </NavLink>
+          <NavLink to="/productos-para-piscina">Productos para piscina</NavLink>
         </li>
 
         <li 
@@ -70,38 +45,14 @@ export default function Navbar() {
         >
           &#8230;
           <ul className="submenu-mas" style={{ display: showMoreMenu ? 'block' : 'none' }}>
-            <li>
-              <NavLink 
-                to="/quimicos-industriales" 
-                className={({ isActive }) => (isActive ? 'active' : '')}
-                onClick={() => setShowMoreMenu(false)}
-              >
-                Químicos industriales
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/blog" 
-                className={({ isActive }) => (isActive ? 'active' : '')}
-                onClick={() => setShowMoreMenu(false)}
-              >
-                Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/contacto" 
-                className={({ isActive }) => (isActive ? 'active' : '')}
-                onClick={() => setShowMoreMenu(false)}
-              >
-                Contacto
-              </NavLink>
-            </li>
+            <li><NavLink to="/quimicos-industriales" onClick={() => setShowMoreMenu(false)}>Químicos industriales</NavLink></li>
+            <li><NavLink to="/blog" onClick={() => setShowMoreMenu(false)}>Blog</NavLink></li>
+            <li><NavLink to="/contacto" onClick={() => setShowMoreMenu(false)}>Contacto</NavLink></li>
           </ul>
         </li>
 
         <li>
-          <button className="btn-mrcloro" onClick={handleLoginClick}>
+          <button className="btn-mrcloro" onClick={() => navigate('/login')}>
             Iniciar sesion
           </button>
         </li>

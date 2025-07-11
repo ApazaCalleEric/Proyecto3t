@@ -28,7 +28,7 @@ export default function LavandinaLavanda() {
           </p>
 
           <div className="product-container">
-            {/* Left Benefits */}
+            {/* Left Side - Two Benefits */}
             <div className="benefits-left">
               <div className="benefit-item">
                 <div className="icon-circle purple">
@@ -51,17 +51,7 @@ export default function LavandinaLavanda() {
               </div>
             </div>
 
-            {/* Center Product Image */}
-            <div className="product-image-container">
-              {/* AQUÍ VA LA RUTA DE TU IMAGEN */}
-              <img 
-                src="/LavandinaLavanda.jpg" 
-                alt="Lavandina Lavanda Cloro" 
-                className="product-image"
-              />
-            </div>
-
-            {/* Right Benefits */}
+            {/* Right Side - Two Benefits */}
             <div className="benefits-right">
               <div className="benefit-item">
                 <div className="icon-circle purple">
@@ -82,6 +72,16 @@ export default function LavandinaLavanda() {
                 <h3>En Ropa Blanca</h3>
                 <p>Blanqueado de ropa blanca eliminando las manchas más difíciles. Devuelve a la ropa su blancor. Su impregnación efectiva, etc.</p>
               </div>
+            </div>
+
+            {/* Center Product Image */}
+            <div className="product-image-container">
+              {/* AQUÍ VA LA RUTA DE TU IMAGEN */}
+              <img 
+                src="/LavandinaLavanda.jpg" 
+                alt="Lavandina Lavanda Cloro" 
+                className="product-image"
+              />
             </div>
           </div>
         </section>

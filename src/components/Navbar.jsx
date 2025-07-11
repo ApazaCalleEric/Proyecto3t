@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [showMoreMenu, setShowMoreMenu] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     function onScroll() {
@@ -12,6 +13,10 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const handleLoginClick = () => {
+    navigate('/login')
+  }
 
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -96,7 +101,9 @@ export default function Navbar() {
         </li>
 
         <li>
-          <button className="btn-mrcloro">MR CLORO</button>
+          <button className="btn-mrcloro" onClick={handleLoginClick}>
+            Iniciar sesion
+          </button>
         </li>
       </ul>
     </header>

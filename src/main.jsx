@@ -12,6 +12,10 @@ import Piscina from './pages/Piscina'
 import Quimicos from './pages/Quimicos'
 import BlogPage from './pages/Blog'
 import Contacto from './pages/Contacto'
+import Login from './components/Login'
+
+// Importar la configuración de Firebase
+import './firebase-config'
 
 import './index.css'
 
@@ -27,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/quimicos-industriales" element={<Quimicos />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/contacto" element={<Contacto />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
     <Footer />
   </BrowserRouter>

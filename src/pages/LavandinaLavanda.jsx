@@ -5,7 +5,7 @@ import './LavandinaLavanda.css';
 export default function LavandinaLavanda() {
   return (
     <>
-      
+      <Navbar />
       
       {/* Hero Section */}
       <section className="hero-section">
@@ -21,65 +21,75 @@ export default function LavandinaLavanda() {
 
       {/* Main Content */}
       <main className="main-content">
-        <section className="product-section">
-          <h2 className="section-title">PONELE AROMA A TUS DÍAS DE LIMPIEZA</h2>
-          <p className="section-subtitle">
-            Limpia, aromatiza y desinfecta. Para el cuidado de tu salud, tu casa y tu ropa.
+        {/* Title and Subtitle */}
+        <div className="header-section">
+          <h2 className="main-title">PONELE AROMA A TUS DÍAS DE LIMPIEZA</h2>
+          <p className="main-description">
+            	
+            Limpia, aromatiza y desinfecta. Para el cuidado de su salud, su casa y su ropa.
           </p>
+        </div>
 
+        {/* Product Section with Benefits and Image */}
+        <section className="product-section">
           <div className="product-container">
-            {/* Left Side - Two Benefits */}
-            <div className="benefits-left">
-              <div className="benefit-item">
-                <div className="icon-circle purple">
+            {/* Left Side - Benefits List */}
+            <div className="benefits-container">
+              <div className="benefit-card">
+                <div className="benefit-icon red">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z" fill="white"/>
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="white"/>
                   </svg>
                 </div>
-                <h3>En La Cocina</h3>
-                <p>Limpieza, blanqueo, desinfección y desodorización de vajilla, utensilios, cocina, hornos, azulejos, amoblamientos y mesada.</p>
+                <div className="benefit-text">
+                  <h3>En la Cocina</h3>
+                  <p>Limpieza, blanqueo, desinfección y desodorización de tejidos, utensilios de cocina, vajilla, alimentos, superficies y mesadas.</p>
+                </div>
               </div>
 
-              <div className="benefit-item">
-                <div className="icon-circle purple">
+              <div className="benefit-card">
+                <div className="benefit-icon blue">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2v20l8-8V6l-8-4z" fill="white"/>
+                    <path d="M9 11H7v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9h-2m-7 0V6a5 5 0 0 1 10 0v5m-8 0h6m-6 0V6a3 3 0 0 1 6 0v5" fill="white"/>
                   </svg>
                 </div>
-                <h3>En utensilios domésticos</h3>
-                <p>Limpieza y desinfección de juguetes plásticos, baldes, palanganas, regaderas, utensilios, lavandinas, de jardinería y patio.</p>
+                <div className="benefit-text">
+                  <h3>En el Baño</h3>
+                  <p>Limpieza y desinfección a fondo de inodoros, pisos, azulejos, bañaderas, lavabos, desagües y accesorios en general, eliminando gérmenes y olores.</p>
+                </div>
+              </div>
+
+              <div className="benefit-card">
+                <div className="benefit-icon orange">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white"/>
+                  </svg>
+                </div>
+                <div className="benefit-text">
+                  <h3>En las frutas y verduras</h3>
+                  <p>Desinfecta los alimentos y elimina la suciedad.</p>
+                </div>
+              </div>
+
+              <div className="benefit-card">
+                <div className="benefit-icon purple">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z" fill="white"/>
+                  </svg>
+                </div>
+                <div className="benefit-text">
+                  <h3>Limpieza de Lavadoras</h3>
+                  <p>Para realizar una desinfección por lavado.</p>
+                </div>
               </div>
             </div>
 
-            {/* Right Side - Two Benefits */}
-            <div className="benefits-right">
-              <div className="benefit-item">
-                <div className="icon-circle purple">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z" fill="white"/>
-                  </svg>
-                </div>
-                <h3>En el Baño</h3>
-                <p>Limpieza y desinfección a fondo de inodoros, pisos, azulejos, artefactos sanitarios. Elimina sus manchas y olores dejando un agradable aroma.</p>
-              </div>
-
-              <div className="benefit-item">
-                <div className="icon-circle purple">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2v20l8-8V6l-8-4z" fill="white"/>
-                  </svg>
-                </div>
-                <h3>En Ropa Blanca</h3>
-                <p>Blanqueado de ropa blanca eliminando las manchas más difíciles. Devuelve a la ropa su blancor. Su impregnación efectiva, etc.</p>
-              </div>
-            </div>
-
-            {/* Center Product Image */}
-            <div className="product-image-container">
-              {/* AQUÍ VA LA RUTA DE TU IMAGEN */}
+            {/* Right Side - Product Image */}
+            <div className="product-image-section">
+              
               <img 
                 src="/LavandinaLavanda.jpg" 
-                alt="Lavandina Lavanda Cloro" 
+                alt="Mr. Cloro 1 Litro" 
                 className="product-image"
               />
             </div>
@@ -133,7 +143,7 @@ export default function LavandinaLavanda() {
         </section>
       </main>
 
-
+      <Footer />
     </>
   )
 }

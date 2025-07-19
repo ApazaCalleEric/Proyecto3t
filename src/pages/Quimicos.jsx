@@ -25,65 +25,45 @@ export default function Quimicos() {
         {/* Sección principal */}
         <div className="quimicos-main">
           <div className="content-wrapper">
+            <h2>Ácido Nítrico Mr. Cloro, solución industrial versátil</h2>
+            <p>
+              El ácido nítrico de Mr Cloro, conocido químicamente como HNO<sub>3</sub>, es un potente ácido mineral con diversas aplicaciones industriales, 
+              comerciales y domésticas, principalmente debido a su capacidad para reaccionar con la mayoría de los metales y su papel en el uso para la 
+              limpieza doméstica e industrial. El ácido nítrico Mr. Cloro viene con una concentración de 68% de pureza.
+            </p>
+            
             <div className="product-section">
-              
-              {/* Encabezado del producto */}
-              <div className="product-header">
-                <h2>LÍQUIDO</h2>
-                <div className="product-image">
-                  <img src={imagenAcidoNitrico} alt="Ácido Nítrico Mr. Cloro" />
+              <div className="features-grid">
+                <div className="feature-item">
+                  <div className="feature-icon floor">🧹</div>
+                  <h3>Pisos</h3>
+                  <p>El uso del ácido nítrico para la limpieza de pisos debe hacerse con precaución. La concentración recomendada varía, pero generalmente, una solución diluida (normalmente no más del 10%).</p>
+                </div>
+                <div className="feature-item">
+                  <div className="feature-icon maintenance">🔧</div>
+                  <h3>Limpieza y Mantenimiento</h3>
+                  <p>Utilizado para limpiar metales, especialmente en la preparación de superficies para la galvanoplastia o la anodización.</p>
+                </div>
+                <div className="feature-item">
+                  <div className="feature-icon industry">🏭</div>
+                  <h3>Industria Química</h3>
+                  <p>Fabricación de compuestos orgánicos e inorgánicos, incluyendo fertilizantes como el nitrato de amonio.</p>
+                </div>
+                <div className="feature-item">
+                  <div className="feature-icon bathroom">🚽</div>
+                  <h3>Limpieza de Sanitarios</h3>
+                  <p>Limpieza y desinfección a fondo de inodoros, pisos azulejos, artefactos sanitarios.</p>
                 </div>
               </div>
               
-              {/* Descripción principal */}
-              <div className="product-description">
-                <p>
-                  El ácido nítrico de Mr Cloro, conocido químicamente como HNO<sub>3</sub>, es un potente ácido mineral con diversas aplicaciones industriales, 
-                  comerciales y domésticas, principalmente debido a su capacidad para reaccionar con la mayoría de los metales y su papel en el uso para la 
-                  limpieza doméstica e industrial. El ácido nítrico Mr. Cloro viene con una concentración de 68% de pureza.
-                </p>
-              </div>
-              
-              {/* Sección de aplicaciones en dos columnas */}
-              <div className="applications-container">
-                <div className="applications-column">
-                  <div className="application-item">
-                    <h3>Pisos</h3>
-                    <p>
-                      El uso del ácido nítrico para la limpieza de pisos debe hacerse con precaución. La concentración recomendada varía, pero generalmente, 
-                      una solución diluida (normalmente no más del 10%)
-                    </p>
-                  </div>
-                  
-                  <div className="application-item">
-                    <h3>Limpieza y Mantenimiento</h3>
-                    <p>
-                      Utilizado para limpiar metales, especialmente en la preparación de superficies para la galvanoplastia o la anodización.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="applications-column">
-                  <div className="application-item">
-                    <h3>Industria Química</h3>
-                    <p>
-                      Fabricación de compuestos orgánicos e inorgánicos, incluyendo fertilizantes como el nitrato de amonio.
-                    </p>
-                  </div>
-                  
-                  <div className="application-item">
-                    <h3>Limpieza de Sanitarios</h3>
-                    <p>
-                      Limpieza y desinfección a fondo de inodoros, pisos azulejos, artefactos sanitarios.
-                    </p>
-                  </div>
-                </div>
+              <div className="product-image">
+                <img src={imagenAcidoNitrico} alt="Ácido Nítrico Mr. Cloro" />
               </div>
             </div>
           </div>
         </div>
       </div>
-     
+      <Footer />
     </>
   );
 }

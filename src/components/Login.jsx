@@ -14,11 +14,6 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const loadDemoCredentials = () => {
-    setEmail('lisandro@gmail.com');
-    setPassword('admin1234');
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -45,43 +40,61 @@ const Login = () => {
         const user = userCredential.user;
         
         // Guardar información del usuario en Firestore
-        await setDoc(doc(db, 'users', user.uid), {
+        const userData = {
           email: user.email,
           userType: userType,
           createdAt: new Date().toISOString()
-        });
+        };
+        
+        await setDoc(doc(db, 'users', user.uid), userData);
+        console.log('Datos guardados en Firestore:', JSON.stringify(userData, null, 2));
         
         console.log('Usuario registrado como:', userType);
         redirectBasedOnUserType(userType);
       }
     } catch (error) {
-      setError(error.message);
+      console.error('Error de autenticación:', error);
+      // Mejorar mensajes de error para el usuario
+      switch (error.code) {
+        case 'auth/user-not-found':
+          setError('Usuario no encontrado');
+          break;
+        case 'auth/wrong-password':
+          setError('Contraseña incorrecta');
+          break;
+        case 'auth/email-already-in-use':
+          setError('El correo ya está registrado');
+          break;
+        case 'auth/weak-password':
+          setError('La contraseña debe tener al menos 6 caracteres');
+          break;
+        case 'auth/invalid-email':
+          setError('Correo electrónico inválido');
+          break;
+        default:
+          setError('Error de conexión. Verifica tu internet o intenta más tarde.');
+      }
     } finally {
       setLoading(false);
     }
   };
 
   const redirectBasedOnUserType = (type) => {
-    // Implementa aquí tu lógica de redirección
     switch (type) {
       case 'administrador':
         console.log('Redirigiendo a panel de administrador');
-        // Redirige al inicio después de autenticarse
-        navigate('/');
+        navigate('/admin');
         break;
       case 'encargado-inventario':
         console.log('Redirigiendo a panel de inventario');
-        // Redirige al inicio después de autenticarse
-        navigate('/');
+        navigate('/inventario');
         break;
       case 'encargado-producto':
         console.log('Redirigiendo a panel de productos');
-        // Redirige al inicio después de autenticarse
-        navigate('/');
+        navigate('/productos');
         break;
       default:
         console.log('Tipo de usuario no reconocido');
-        // Redirige al inicio por defecto
         navigate('/');
     }
   };
@@ -116,6 +129,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="********"
+              minLength="6"
             />
           </div>
 
@@ -144,16 +158,6 @@ const Login = () => {
           <button type="submit" className="login-button" disabled={loading}>
             {loading ? 'Procesando...' : (isLogin ? 'Iniciar Sesión' : 'Registrarse')}
           </button>
-
-          {isLogin && (
-            <button 
-              type="button" 
-              className="demo-button" 
-              onClick={loadDemoCredentials}
-            >
-              Usar credenciales de demo
-            </button>
-          )}
         </form>
 
         <div className="login-footer">

@@ -71,142 +71,145 @@ body {
   width: 100%;
 }
 
-.product-section {
-  margin-bottom: 4rem;
-}
-
-.product-section h2 {
+.quimicos-main h2 {
   color: #8B4513;
   font-size: 2.2rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 600;
 }
 
-.product-item {
+.quimicos-main > .content-wrapper > p {
   text-align: center;
-  padding: 2rem;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #e9ecef;
+  height: 100%;
 }
 
-.product-item:hover {
+.feature-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
 }
 
-.product-icon {
-  width: 70px;
-  height: 70px;
+.feature-icon {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
-  font-size: 1.8rem;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: bold;
+}
+
+.feature-icon.floor {
+  background: linear-gradient(135deg, #A0522D, #CD853F);
+}
+
+.feature-icon.maintenance {
   background: linear-gradient(135deg, #8B4513, #A0522D);
 }
 
-.product-item h3 {
+.feature-icon.industry {
+  background: linear-gradient(135deg, #D2691E, #CD853F);
+}
+
+.feature-icon.bathroom {
+  background: linear-gradient(135deg, #A0522D, #8B4513);
+}
+
+.feature-item h3 {
   color: #8B4513;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
 }
 
 .product-image {
   text-align: center;
-  margin: 1.5rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  height: fit-content;
 }
 
 .product-image img {
   max-width: 100%;
   height: auto;
-  max-height: 250px;
+  max-height: 400px;
   object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.product-description {
-  text-align: left;
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background-color: #F5F5DC;
-  border-radius: 8px;
-  border-left: 4px solid #8B4513;
-}
-
-.product-description p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-.applications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.application-item {
-  text-align: left;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.application-item:hover {
-  transform: translateY(-3px);
-}
-
-.app-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  color: white;
-  background: linear-gradient(135deg, #A0522D, #CD853F);
-}
-
-.application-item h4 {
-  color: #8B4513;
-  margin-bottom: 0.8rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.application-item p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #666;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .product-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .product-image {
+    order: -1;
+  }
+  
   .quimicos-header {
-    padding: 7rem 0 4rem 0;
+    padding: 5rem 0 2rem 0;
   }
 }
 
 @media (max-width: 768px) {
   .quimicos-header {
-    padding: 5rem 0 3rem 0;
+    padding: 4rem 0 2rem 0;
   }
   
   .quimicos-header h1 {
     font-size: 2.5rem;
+  }
+  
+  .quimicos-main h2 {
+    font-size: 1.8rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .quimicos-main {
@@ -216,32 +219,22 @@ body {
   .content-wrapper {
     padding: 0 0.5rem;
   }
-  
-  .applications-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 480px) {
   .quimicos-header {
-    padding: 4rem 0 2rem 0;
+    padding: 3.5rem 0 1.5rem 0;
   }
   
   .quimicos-header h1 {
     font-size: 2rem;
   }
   
-  .product-item {
-    padding: 1.5rem;
-  }
-  
-  .product-icon {
-    width: 60px;
-    height: 60px;
+  .quimicos-main h2 {
     font-size: 1.5rem;
   }
   
-  .application-item {
-    padding: 1.2rem;
+  .feature-item {
+    padding: 1rem;
   }
 }
